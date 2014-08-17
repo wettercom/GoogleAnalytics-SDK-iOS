@@ -1,4 +1,46 @@
-Google Tag Manager SDK for iOS Change Log
+Google Tag Manager SDK for iOS Changelog
+
+--------------------------------------------
+Version: 3.09 (July, 2014)
+--------------------------------------------
+* Added support for Enhanced Ecommerce to Google Universal Analytics tag.
+* Added dispatch: and dispatchWithCompletionHandler: method to TAGManager to
+  support sending pending network traffic on demand.
+
+--------------------------------------------
+Version: 3.08 (June, 2014)
+--------------------------------------------
+* No Changes
+
+--------------------------------------------
+Version: 3.07 (May, 2014)
+--------------------------------------------
+* Fixed a bug in Id for Advertising Macro so that it can correctly
+  return identifier for advertiser(IDFA) if available.
+* Fixed an issue so users can use NSNumber for ecommerce data.
+
+--------------------------------------------
+Version: 3.06 (March, 2014)
+--------------------------------------------
+* Added support for Google Analytics Content Experiments Macro.
+
+--------------------------------------------
+Version: 3.03c (February, 2014)
+--------------------------------------------
+* Functions that call AdSupport.framework API are broken out into a separate
+  library, libAdIdAccess.a. Apps need to link with that library to have access
+  to the advertising identifier (IDFA) string and advertiser tracking enabled
+  flag.
+
+--------------------------------------------
+Version: 3.03a (February, 2014)
+--------------------------------------------
+* No Changes.
+
+--------------------------------------------
+Version: 3.03 (January, 2014)
+--------------------------------------------
+* Added support for 64-bit iOS SDK 7.0.
 
 --------------------------------------------
 Version: 3.02 (October, 2013)
