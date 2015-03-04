@@ -3,27 +3,27 @@
 /**
  * Represents an object missing in an NSArray. If the data layer currently
  * contains:
-<pre>
+ <pre>
  *   {
  *     myArray: [1, 2, 3]
  *   }
-</pre>
+ </pre>
  * and you want to update the third element to 5, while leaving other elements
  * alone, you'd use <code>kTAGDataLayerNotPresent</code> as the 1st and 2nd
  * elements (if you were to use a <code>NSNull</code> object,
  * the 1st and 2nd elements would be replaced).
  * <p>
  * So, after executing:
-<pre>
+ <pre>
  *  [dataLayer push:@{@"myArray",
  *      @[kTAGDataLayerObjectNotPresent, kTAGDataLayerObjectNotPresent, @5}];
-</pre>
+ </pre>
  * then, the data layer will contain:
-<pre>
+ <pre>
  *   {
  *     myArray: [1, 2, 5]
  *   }
-</pre>
+ </pre>
  */
 extern NSObject *kTAGDataLayerObjectNotPresent;
 
@@ -33,60 +33,60 @@ extern NSObject *kTAGDataLayerObjectNotPresent;
  * that understands the specification. The data layer state is updated
  * through its API. For example, an app might start with the following
  * dataLayer:
-<pre>
+ <pre>
  *   {
  *     title: "Original screen title"
  *   }
-</pre>
+ </pre>
  *
  * As the state/data of an app can change, the app can update the dataLayer with a call such as:
-<pre>
+ <pre>
  *   [dataLayer push:@{@"title": @"New screen title"}];
-</pre>
+ </pre>
  *  Now the data layer contains:
-<pre>
+ <pre>
  *   {
  *     title: "New screen title"
  *   }
-</pre>
+ </pre>
  * After another push happens:
-<pre>
+ <pre>
  *   [dataLayer push:@{@"xyz": @3}];
-</pre>
+ </pre>
  * The dataLayer contains:
-<pre>
+ <pre>
  *   {
  *     "title": "New screen title",
  *     "xyz": 3
  *   }
-</pre>
+ </pre>
  * The following example demonstrates how array and map merging works. If the
  * original dataLayer contains:
-<pre>
+ <pre>
  *   {
  *     "items": @[@"item1", [NSNull null], @"item2", @{@"a": @"aValue", @"b": @"bValue"}]
  *   }
-</pre>
+ </pre>
  * After this push happens:
-<pre>
+ <pre>
  *   [dataLayer push:@{@"items":
  *       @[[NSNull null], @"item6", kTAGDataLayerObjectNotPresent, @{@"a": [NSNull null]}]}
-</pre>
+ </pre>
  * The dataLayer contains:
-<pre>
+ <pre>
  *   {
  *     "items": @[[NSNull null], @"item6", @"item2", @{@"a": [NSNull null], @"b": @"bValue"}]}
  *   }
-</pre>
+ </pre>
  * <p>Pushes happen synchronously; after the push, changes have been reflected
  * in the model.
  * <p>When an <code>event</code> key is pushed to the data layer, rules for tags
  * are evaluated and any tags matching this event will fire.
  * For example, given a container with a tag whose firing rules is that "event"
  * is equal to "openScreen", after this push:
-<pre>
+ <pre>
  *   [dataLayer push:@{@"event", @"openScreen"}];
-</pre>
+ </pre>
  * that tag will fire.
  */
 @interface TAGDataLayer : NSObject
@@ -119,7 +119,8 @@ extern NSObject *kTAGDataLayerObjectNotPresent;
  * will be evaluated and matching tags will fire.
  *
  * @param update The update object to process
- */- (void)push:(NSDictionary*)update;
+ */
+- (void)push:(NSDictionary*)update;
 
 /**
  * Returns the object in the model associated with the given key.

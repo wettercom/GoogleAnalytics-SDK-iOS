@@ -3,7 +3,7 @@
  @abstract  Google Analytics iOS SDK Tracker Header
  @version   3.0
  @copyright Copyright 2013 Google Inc. All rights reserved.
-*/
+ */
 
 #import <Foundation/Foundation.h>
 
@@ -22,10 +22,15 @@
 @property(nonatomic, readonly) NSString *name;
 
 /*!
+ Allow collection of IDFA and related fields if set to true.  Default is false.
+ */
+@property(nonatomic) BOOL allowIDFACollection;
+
+/*!
  Set a tracking parameter.
-
+ 
  @param parameterName The parameter name.
-
+ 
  @param value The value to set for the parameter. If this is nil, the
  value for the parameter will be cleared.
  */
@@ -34,9 +39,9 @@
 
 /*!
  Get a tracking parameter.
-
+ 
  @param parameterName The parameter name.
-
+ 
  @returns The parameter value, or nil if no value for the given parameter is
  set.
  */
@@ -44,7 +49,7 @@
 
 /*!
  Queue tracking information with the given parameter values.
-
+ 
  @param parameters A map from parameter names to parameter values which will be
  set just for this piece of tracking information, or nil for none.
  */
